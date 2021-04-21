@@ -1,0 +1,378 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     13926,        369]
+NotebookOptionsPosition[     13566,        353]
+NotebookOutlinePosition[     13905,        368]
+CellTagsIndexPosition[     13862,        365]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"(*", 
+  RowBox[{"--", 
+   RowBox[{"--", 
+    RowBox[{"--", 
+     RowBox[{"--", 
+      RowBox[{"--", 
+       RowBox[{"--", 
+        RowBox[{"--", 
+         RowBox[{"--", 
+          RowBox[{"--", 
+           RowBox[{"--", 
+            RowBox[{"--", 
+             RowBox[{"--", 
+              RowBox[{"--", 
+               RowBox[{"--", 
+                RowBox[{"--", 
+                 RowBox[{"--", 
+                  RowBox[{"--", 
+                   RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{
+                    "--", "--"}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]\
+}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]\
+}]}]}]}]}]}]}]}]}]}]}]}], "*)"}]], "Input",
+ CellChangeTimes->{{3.7462939050494366`*^9, 3.746293915809083*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"NeumBorn", "[", 
+   RowBox[{
+   "Ke_", ",", "Fu_", ",", "Ma_", ",", "Mi_", ",", "Ta_", ",", "Mo_"}], "]"}],
+   ":=", 
+  RowBox[{"Block", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"kernel", "=", "Ke"}], ",", 
+      RowBox[{"funcao", "=", "Fu"}], ",", "f", ",", 
+      RowBox[{"mini", "=", "Mi"}], ",", 
+      RowBox[{"max", "=", "Ma"}], ",", "polinomio", ",", "coeficientes", ",", 
+      RowBox[{"mostrar", "=", "Mo"}], ",", 
+      RowBox[{"quant", "=", "Ta"}], ",", 
+      RowBox[{"geral", "=", "Mo"}], ",", "x", ",", "t", ",", "\[Lambda]"}], 
+     "}"}], ",", "\[IndentingNewLine]", 
+    RowBox[{"(*", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"kernel", "[", 
+        RowBox[{"x_", ",", "t_"}], "]"}], "=", 
+       RowBox[{
+       "Input", "[", "\"\<Digite a express\[ATilde]o do Kernel K(x,t):\>\"", 
+        "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"funcao", "[", "x_", "]"}], "=", 
+       RowBox[{
+       "Input", "[", 
+        "\"\<Digite a express\[ATilde]o da Fun\[CCedilla]\[ATilde]o \
+F(x):\>\"", "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"max", "=", 
+       RowBox[{"Input", "[", "\"\<Limite Superior da Integral:\>\"", "]"}]}], 
+      ";", "\[IndentingNewLine]", 
+      RowBox[{"mini", "=", 
+       RowBox[{"Input", "[", "\"\<Limite Inferior da Integral:\>\"", "]"}]}], 
+      ";", "\[IndentingNewLine]", 
+      RowBox[{"quant", "=", 
+       RowBox[{"Input", "[", "\"\<Ordem de \[Lambda]\>\"", "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"mostrar", " ", "=", " ", 
+       RowBox[{"ToString", "[", 
+        RowBox[{
+        "Input", "[", 
+         "\"\<Mostrar os coeficientes da S\[EAcute]rie de pot\[EHat]ncia de \
+\[Lambda]? [s ou n]\>\"", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"geral", "=", " ", 
+       RowBox[{"ToString", "[", 
+        RowBox[{
+        "Input", "[", 
+         "\"\<Calcular a solu\[CCedilla]\[ATilde]o completa? [s ou n]\>\"", 
+         "]"}], "]"}]}], ";"}], "*)"}], "\[IndentingNewLine]", 
+    "\[IndentingNewLine]", 
+    RowBox[{"AbsoluteTiming", "[", 
+     RowBox[{"{", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"polinomio", "=", 
+        RowBox[{"ToString", "[", 
+         RowBox[{
+          RowBox[{"funcao", "[", "x", "]"}], ",", "InputForm"}], "]"}]}], ";",
+        "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       RowBox[{"For", "[", 
+        RowBox[{
+         RowBox[{"i", "=", "1"}], ",", 
+         RowBox[{"i", "<", 
+          RowBox[{"(", 
+           RowBox[{"quant", "+", "1"}], ")"}]}], ",", 
+         RowBox[{"i", "++"}], ",", 
+         RowBox[{"{", "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"funcao", "[", "x_", "]"}], "=", 
+            RowBox[{"Integrate", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"kernel", "[", 
+                RowBox[{"x", ",", "t"}], "]"}], "*", 
+               RowBox[{"funcao", "[", "t", "]"}]}], ",", 
+              RowBox[{"{", 
+               RowBox[{"t", ",", "mini", ",", "max"}], "}"}], ",", 
+              RowBox[{"GenerateConditions", "\[Rule]", "False"}]}], "]"}]}], 
+           ";", "\[IndentingNewLine]", 
+           RowBox[{"polinomio", "=", 
+            RowBox[{"polinomio", "<>", "\"\<+\>\"", "<>", 
+             RowBox[{"ToString", "[", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"funcao", "[", "x", "]"}], "*", 
+                RowBox[{"(", 
+                 RowBox[{"\[Lambda]", "^", "i"}], ")"}]}], ",", "InputForm"}],
+               "]"}]}]}], ";"}], "\[IndentingNewLine]", "}"}]}], "]"}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"coeficientes", "=", 
+        RowBox[{"CoefficientList", "[", 
+         RowBox[{
+          RowBox[{"ToExpression", "[", "polinomio", "]"}], ",", "\[Lambda]"}],
+          "]"}]}], ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       RowBox[{"If", "[", 
+        RowBox[{
+         RowBox[{"mostrar", "\[Equal]", "\"\<s\>\""}], ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"Print", "[", "\"\<Coeficientes\>\"", "]"}], ";", 
+           "\[IndentingNewLine]", 
+           RowBox[{"Print", "[", "coeficientes", "]"}], ";", 
+           RowBox[{
+           "Print", "[", 
+            "\"\<Solu\[CCedilla]\[ATilde]o em forma de S\[EAcute]rie\>\"", 
+            "]"}], ";", "\[IndentingNewLine]", 
+           RowBox[{"Print", "[", 
+            RowBox[{"ToExpression", "[", "polinomio", "]"}], "]"}]}], "}"}]}],
+         "]"}], ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       RowBox[{"If", "[", 
+        RowBox[{
+         RowBox[{"geral", "\[Equal]", "\"\<s\>\""}], ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+           "Print", "[", "\"\<Solu\[CCedilla]\[ATilde]o Geral\>\"", "]"}], 
+           ";", "\[IndentingNewLine]", 
+           RowBox[{"Print", "[", 
+            RowBox[{"FindGeneratingFunction", "[", 
+             RowBox[{"coeficientes", ",", "\[Lambda]"}], "]"}], "]"}]}], 
+          "}"}]}], "]"}], ";", "\[IndentingNewLine]", 
+       RowBox[{"Return", "[", 
+        RowBox[{"ToExpression", "[", "polinomio", "]"}], "]"}], ";"}], 
+      "\[IndentingNewLine]", "}"}], "]"}]}], "\[IndentingNewLine]", 
+   "]"}]}]], "Input",
+ CellChangeTimes->CompressedData["
+1:eJxTTMoPSmViYGAQB2IQvT1VJHDey9eO8yNMwHR57K1UEG3XcjEbRN96JlIJ
+oiPWLAbTHi4Xp4LoePWA6SB62W+/+yA6UvDwIxDd5PeceT6IVmljBdFmy6Zl
+mfG/cWzZoVMCot2SfltYA+lb1/fagGhZpyuOIHq6i4IniF6yUKUeRB951d0C
+om1aBPpAdN71WjAd+/K+rw2QnqVT4geil4coPEoHySvrPQHR5QnJItuBtEVA
+qgSITk2cKweiX2XwqYDoc/v85WMF3jguPFSnAKJneArmgehpb1IKQXTN3ZYa
+EL0ve1YtiJ5puZpFUuqN47flCbwgej3fDmEQHbWjSwREf3pnoQCid+xVVAbR
+B76zJoHonLWfk0G037mWDBA9tzI4E0QDAECgrGc=
+  "]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"NeumBorn", "::", "usage"}], "=", 
+   "\"\<Fun\[CCedilla]\[ATilde]o para calcular Equa\[CCedilla]\[ATilde]o \
+Integral de Fredholm de 2\[Degree] esp\[EAcute]cie -> u(x) = f(x)+\[Lambda]\!\
+\(\*SubsuperscriptBox[\(\[Integral]\), \(a\), \(b\)]\)K(x,t)u(t)\
+\[DifferentialD]t\nA fun\[CCedilla]\[ATilde]o NeumBorn \[EAcute] baseada na \
+tecnica SOLU\[CapitalCCedilla]\[CapitalATilde]O PELO OPERADOR INTEGRAL \
+LINEAR: S\[CapitalEAcute]RIE DE NEUMANN (1877) - BORN (1926) para as Equa\
+\[CCedilla]\[OTilde]es Integrais de FredHolm.\n\nA fun\[CCedilla]\[ATilde]o \
+NeumBorn solicitar\[AAcute] 4 par\[AHat]metros de entrada:\nPrimeiro Par\
+\[AHat]metro K(x,t):\n\tFun\[CCedilla]\[ATilde]o Kernel na qual depende das \
+vari\[AAcute]veis x e t\n\nSegundo Par\[AHat]metro F(x):\n\tFun\[CCedilla]\
+\[ATilde]o de onda incidente F(x) na qual depende da vari\[AAcute]vel x\n\n\
+Terceiro Par\[AHat]metro:\n\tO limite superior da integral\n\nQuarto Par\
+\[AHat]metro:\n\tO limite inferior da integral\n\nQuinto Par\[AHat]metro:\n\t\
+At\[EAcute] que ordem ser\[AAcute] calculada\n\nSexto Par\[AHat]metro:\n\tse \
+deseja imprimir os coeficientes de cada ordem de \[Lambda]\n\nS\[EAcute]timo \
+Par\[AHat]metro:\n\tSe deseja que a fun\[CCedilla]\[ATilde]o tente calcular \n\
+\ta solu\[CCedilla]\[ATilde]o completa da s\[EAcute]rie, lembrando\n\tque nem \
+sempre \[EAcute] poss\[IAcute]vel\n\nA fun\[CCedilla]\[ATilde]o NeumBorn \
+retornar\[AAcute] uma equa\[CCedilla]\[ATilde]o dependente de x e de \
+\[Lambda]\>\""}], ";"}]], "Input",
+ CellChangeTimes->{
+  3.7463647600998507`*^9, {3.766082143706413*^9, 3.7660823475363708`*^9}, {
+   3.7660824411209354`*^9, 3.766082447470146*^9}}],
+
+Cell[BoxData[
+ RowBox[{"(*", 
+  RowBox[{"--", 
+   RowBox[{"--", 
+    RowBox[{"--", 
+     RowBox[{"--", 
+      RowBox[{"--", 
+       RowBox[{"--", 
+        RowBox[{"--", 
+         RowBox[{"--", 
+          RowBox[{"--", 
+           RowBox[{"--", 
+            RowBox[{"--", 
+             RowBox[{"--", 
+              RowBox[{"--", 
+               RowBox[{"--", 
+                RowBox[{"--", 
+                 RowBox[{"--", 
+                  RowBox[{"--", 
+                   RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{"--", 
+                    RowBox[{
+                    "--", "--"}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]\
+}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]}]\
+}]}]}]}]}]}]}]}]}]}]}]}], "*)"}]], "Input",
+ CellChangeTimes->{{3.746293944368971*^9, 3.7462939458165374`*^9}}]
+},
+WindowSize->{667, 670},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"10.2 for Microsoft Windows (64-bit) (July 7, 2015)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 2749, 80, 92, "Input"],
+Cell[3310, 102, 5789, 139, 772, "Input"],
+Cell[9102, 243, 1708, 26, 691, "Input"],
+Cell[10813, 271, 2749, 80, 92, "Input"]
+}
+]
+*)
+
+(* End of internal cache information *)
